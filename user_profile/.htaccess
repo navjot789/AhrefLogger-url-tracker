@@ -1,0 +1,27 @@
+RewriteEngine On
+
+
+
+#---------------------------USERS-----------------------------------------------------------------------------
+
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/dashboard
+# its convert dashboard.php to dashboard
+# its remove .php extention
+RewriteRule ^dashboard?$ dashboard.php
+
+
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/logout
+# its convert dashboard.php to dashboard
+# its remove .php extention
+RewriteRule ^logout?$ logout.php
+
+
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/handler
+# its convert dashboard.php to dashboard
+# its remove .php extention
+RewriteRule ^handler?$ handler.php
+
+

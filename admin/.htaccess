@@ -1,0 +1,63 @@
+RewriteEngine on
+
+#change index.php default page to login.php
+RewriteRule ^$ /login.php [L]
+
+
+# by writing the below rule: we can excess the index.php page with:https://sub.example.com/login
+# its convert login.php to login
+# its remove .php extention
+RewriteRule ^login?$ login.php
+
+# by writing the below rule: we can excess the index.php page with:https://sub.example.com/logout
+# its convert logout.php to logout
+# its remove .php extention
+RewriteRule ^logout?$ logout.php
+
+# by writing the below rule: we can excess the index.php page with:https://sub.example.com/dashboard
+# its convert dashboard.php to dashboard
+# its remove .php extention
+RewriteRule ^dashboard?$ dashboard.php
+
+
+# by writing the below rule: we can excess the index.php page with:https://sub.example.com/handler
+# its convert handler.php to handler
+# its remove .php extention
+RewriteRule ^pages/action/handler?$ pages/action/handler.php
+
+
+# by writing the below rule: we can excess the index.php page with:https://sub.example.com/404
+# its convert 404.php to 404
+# its remove .php extention
+RewriteRule ^404?$ 404.php
+
+
+
+#general Decline FOLDERS
+#Decline folder/directory listing from URL_ADDRESS_BAR for GENERAL
+
+RedirectMatch 403 ^/image/?$
+RedirectMatch 403 ^/pages/?$
+RedirectMatch 403 ^/inc/?$
+RedirectMatch 403 ^/fonts/?$
+RedirectMatch 403 ^/img/?$
+RedirectMatch 403 ^/js/?$
+RedirectMatch 403 ^/plugins/?$
+RedirectMatch 403 ^/css/?$
+
+
+
+
+
+
+#Decline all pages which is not in this server or u can say show error when user type wrong url
+ErrorDocument 404 /404
+
+#force not to show .php ext at the end or URL when user typed in url_bar
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\.php
+RewriteRule ^ /%1 [L,R=301]
+
+
+
+
+

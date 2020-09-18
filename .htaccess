@@ -1,0 +1,180 @@
+RewriteEngine On
+
+#---------------------------GENERAL-----------------------------------------------------------------------------
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/url
+# its convert index.php to url|image|invite|join|profile|watch|video|user|download
+# its remove .php extention
+RewriteRule ^index?$ index.php
+RewriteRule ^url?$ index.php
+RewriteRule ^img?$ index.php
+RewriteRule ^invite?$ index.php
+RewriteRule ^join?$ index.php
+RewriteRule ^profile?$ index.php
+RewriteRule ^watch?$ index.php
+RewriteRule ^video?$ index.php
+RewriteRule ^user?$ index.php
+RewriteRule ^download?$ index.php
+
+
+
+# by writing the below rule: we can excess the URL-CODE  with:http://example.com/[index]/[URL-CODE][.ext]
+# its convert index.php to index/
+# its remove .php extention
+# Accepts all alfa-numeric $_GET[link]
+# (Accepts number only:([0-9a-zA-Z]+)) | (Accepts all available extensions:((.jpeg|....)) 
+
+RewriteRule ^index/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^url/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^img/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^invite/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^join/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^profile/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^watch/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^video/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^user/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+RewriteRule ^download/(([0-9a-zA-Z]+)|(.jpeg|.jpg|.png|.gif|.psd|.zip|.rar|.tar|.exe|.mkv|.avi|.mp4|.flv|.webm|.mp3|.wav|.acc|.php|.html|.css|.js)) index.php?link=$1
+
+
+
+#general Decline FOLDERS
+#Decline folder/directory listing from URL_ADDRESS_BAR for GENERAL
+RedirectMatch 403 ^/admin/?$
+RedirectMatch 403 ^/image/?$
+RedirectMatch 403 ^/pages/?$
+RedirectMatch 403 ^/db/?$
+RedirectMatch 403 ^/connection/?$
+
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/track
+# its convert track.php to track
+# its remove .php extention
+RewriteRule ^track?$ track.php
+RewriteRule ^track2?$ track2.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/loader/fetch
+# its convert loader/fetch.php to loader/fetch
+# its remove .php extention
+RewriteRule ^loader/fetch?$ loader/fetch.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/codetrack
+# its convert codetrack.php to codetrack
+# its remove .php extention
+RewriteRule ^codetrack?$ codetrack.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/removeme
+# its convert removeme.php to removeme
+# its remove .php extention
+RewriteRule ^removeme?$ removeme.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/login
+# its convert login.php to login
+# its remove .php extention
+RewriteRule ^login?$ login.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/contact
+# its convert contact.php to contact
+# its remove .php extention
+RewriteRule ^contact?$ contact.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/forgot
+# its convert forgot.php to forgot
+# its remove .php extention
+RewriteRule ^password_reset?$ password_reset.php
+RewriteRule ^password_reset/([0-9a-zA-Z]+) password_reset.php?external_token=$1
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/register
+# its convert register.php to register
+# its remove .php extention
+RewriteRule ^register?$ register.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/error
+# its convert error.php to error
+# its remove .php extention
+RewriteRule ^error?$ error.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/activate
+# its convert activate.php to activate
+# its remove .php extention
+RewriteRule ^activate?$ activate.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/confirm
+# its convert confirm.php to confirm
+# its remove .php extention
+RewriteRule ^confirm?$ confirm.php
+RewriteRule ^confirm/([0-9a-zA-Z]+) confirm.php?confirm_msg=$1
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/tos
+# its convert example.php to tos
+# its remove .php extention
+RewriteRule ^tos?$ tos.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/expander
+# its convert expander.php to expander
+# its remove .php extention
+RewriteRule ^expander?$ expander.php
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/public
+# its convert example.php to public
+# its remove .php extention
+RewriteRule ^public?$ public.php
+RewriteRule ^public/([0-9a-zA-Z]+) public.php?external_username=$1
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/email_handler
+# its convert email_handler.php to email_handler
+# its remove .php extention
+RewriteRule ^pages/email_handler?$ pages/email_handler.php
+
+
+
+
+# by writing the below rule: we can excess the index.php page with:http://example.com/example
+# its convert example.php to example
+# its remove .php extention
+RewriteRule ^example?$ example.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Decline all pages which is not in this server or u can say show error when user type wrong url
+ErrorDocument 404 /error
+
+#force not to show .php ext at the end or URL when user typed in url_bar
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\.php
+RewriteRule ^ /%1 [L,R=301]
+
+
+
+
+
+
+
+#---------------------------USERS-----------------------------------------------------------------------------
+
+#Decline FOLDERS
+#Decline folder/directory listing from URL_ADDRESS_BAR for GENERAL
+RedirectMatch 403 ^/user_profile/?$
+
+
+#---------------------------DOMAIN-----------------------------------------------------------------------------
+
+
+# force to https
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW SSL_REDIRECT:ahref.tech
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^ahref.tech$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE SSL_REDIRECT:ahref.tech
+
+
+

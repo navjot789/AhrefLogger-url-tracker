@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /user_profile/
+Disallow: /image/
+Disallow: /pages/
+Disallow: /db/
+Disallow: /connection/
