@@ -1,11 +1,19 @@
 # AhrefLogger-url-tracker
-Ahref web app is design for multiple purpose but for as a normal user, system helps to track
-analytic which help bloggers or article writers in order to give them a valuable feedback
-among their users. It helps them to track number of viewers and have an eye on the specific url.
-Also, it has inbuild URL shortening service which allow user to convert any long specify link to
-short. 
 
-By using this you can track their device information as well.
+The application aims to track user activity and the device information Whomever click on the
+specific shorten link.
+
+# The main objectives of this application are as follows:
+
+• Use in Various organization to check its security level of their systems.
+
+• Helps article/bloggers to short their long URL into short.
+
+• Enhance web experiences(cookies).
+
+• Detection of target devices (gathering information).
+
+• Use in IT business to check the specification of competitor handset 
 
 # This application consists of modules like:
  1. URL-shortening Encrypted
