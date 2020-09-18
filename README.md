@@ -37,3 +37,10 @@ specific shorten link.
 19. Note/Memo Option
 20. Remove My data
 21. Public/private url
+
+# Application front view:
+![front](https://i.ibb.co/XYwqqPb/Untitled.png)
+
+# Application back view:
+
+![back](https://i.ibb.co/gvPV61k/Untitled.png)
