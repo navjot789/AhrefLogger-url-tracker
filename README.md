@@ -1,4 +1,5 @@
 # AhrefLogger-url-tracker
+Note: This system might not be fully functional on local environment.
 
 The application aims to track user activity and the device information Whomever click on the
 specific shorten link.
