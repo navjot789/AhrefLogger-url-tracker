@@ -46,3 +46,16 @@ specific shorten link.
 ![back](https://i.ibb.co/gvPV61k/Untitled.png)
 
 # Installation 
+1. After uploading the zip file on the hosting server, then extract the files onto the server.
+2. Now goto [Google recaptcha](https://www.google.com/recaptcha/admin/create) and create v2 recaptcha.
+ 
+ Open file connection/connect.php and paste the public and secret key inside the variables.
+ ```php
+ $siteKey   = 'Google-recaptcha-V2-sitekey';
+ $secretKey = 'Google-recaptcha-V2-secretkey';
+ ```
+ 
+ 3. Create new database in Myphpadmin, import the SQL file in the DB and paste the credentials as follows.
+ ```php
+ $con = mysqli_connect("localhost","username","password","database");
+ ```
