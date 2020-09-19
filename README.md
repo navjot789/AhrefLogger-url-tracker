@@ -63,3 +63,7 @@ specific shorten link.
 
 # Installation of new Domain || Path || Extension
 Refer this video as a guide to add new free domain: [click here!](https://www.google.com/recaptcha/admin/create)
+
+# want to contact me?
+You can DM me on my instagram account: [click here!](https://www.instagram.com/code_lone/?hl=en)
+
