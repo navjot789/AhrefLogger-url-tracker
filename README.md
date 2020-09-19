@@ -62,7 +62,9 @@ specific shorten link.
  ```
 
 # Installation of new Domain || Path || Extension
-Refer this video as a guide to add new free domain: [click here!](https://www.google.com/recaptcha/admin/create)
+This first video guide you how to setup a free domain on AhrefLogger: [click here!](#)
+
+This Second video guide you how to install AhrefLogger source-code on your hosting : [click here!](#)
 
 # want to contact me?
 You can DM me on my instagram account: [click here!](https://www.instagram.com/code_lone/?hl=en)
