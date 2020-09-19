@@ -60,3 +60,6 @@ specific shorten link.
  ```php
  $con = mysqli_connect("localhost","username","password","database");
  ```
+
+# Installation of new Domain || Path || Extension
+Refer this video as a guide to add new free domain: [click here!](https://www.google.com/recaptcha/admin/create)
