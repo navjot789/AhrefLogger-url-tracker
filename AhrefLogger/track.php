@@ -8,7 +8,7 @@ error_reporting(0);
 if(empty($_SESSION['TRACK_CODE']))
 {
    
-    header('Location:http://ahref.tech');
+    header('Location:'.$_SERVER['HTTP_HOST']);
 }
 else
 {
@@ -36,50 +36,50 @@ else
           <?php include 'pages/m_header.php';?>   
             
                 <section class="dark under-head-cont" id="infinity-breadcrumb">
-            	<div class="container">
-            		<h2>AHREF - TRACK</h2>
-            		<ol class="breadcrumb">
-            		  <li><a href="http://ahrefs.tech/">Home</a></li>
-            		  <?php
-            		     if(isset($_SESSION['u_id']) &&  $_SESSION['loggedin'] == TRUE)
-            		     {
-            		         echo ' <li class="active">'.$_SESSION['username'].'</li>';
-            		     }
-            		     else
-            		     {
-            		         echo '<li class="active">Guest</li>';
-            		     }
-            		  ?>
-            		 
-            		</ol>
-            	</div>
+              <div class="container">
+                <h2>AHREF - TRACK</h2>
+                <ol class="breadcrumb">
+                  <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/">Home</a></li>
+                  <?php
+                     if(isset($_SESSION['u_id']) &&  $_SESSION['loggedin'] == TRUE)
+                     {
+                         echo ' <li class="active">'.$_SESSION['username'].'</li>';
+                     }
+                     else
+                     {
+                         echo '<li class="active">Guest</li>';
+                     }
+                  ?>
+                 
+                </ol>
+              </div>
             </section>
             
          
              
             
             <section class="breadcrumb-section">
-            	<div class="container content">
-            		<div class="row main-content">
-            			<div class="col-md-8">				
-            				<div class="panel panel-body panel-default">
-            					<h3>LINK INFORMATION:</h3>
-            				<?php
-            				
+              <div class="container content">
+                <div class="row main-content">
+                  <div class="col-md-8">        
+                    <div class="panel panel-body panel-default">
+                      <h3>LINK INFORMATION:</h3>
+                    <?php
+                    
                                          $fetch  = "SELECT * FROM shotner WHERE track_code = '".$_SESSION['TRACK_CODE']."' ";
-                                                                            	    $records = mysqli_query($con,$fetch);
-                                                                            	    $row = mysqli_fetch_array($records);
-            				?>
-            				
-            				
-            				<?php
-            			   //showing email updation notification to user and  in database 0/1
+                                                                                  $records = mysqli_query($con,$fetch);
+                                                                                  $row = mysqli_fetch_array($records);
+                    ?>
+                    
+                    
+                    <?php
+                     //showing email updation notification to user and  in database 0/1
   
-            			                                                	 if(!empty($_GET['e_s']) && isset($_SESSION['loggedin']))
+                                                                     if(!empty($_GET['e_s']) && isset($_SESSION['loggedin']))
                                                                                      {
                                                                                          if($_GET['e_s'] == 1)
                                                                                          {
-                                                                                           	echo '  
+                                                                                            echo '  
                                                                                                                 <div class="alert alert-success">  
                                                                                                                     <button type="button" class="close" data-dismiss="alert">×</button>  
                                                                                                                     <strong>Email Notification updated!</strong> You can change it Anytime.
@@ -89,8 +89,8 @@ else
                                                                                          
                                                                                    }
                                                                                 
-            				?>
-            				
+                    ?>
+                    
             
                             <div class="table-responsive">
                             <table class="table table-hover table-bordered">
@@ -101,8 +101,8 @@ else
                                         <td class ="text-left">
                                             <img src="https://www.google.com/s2/favicons?domain=<?php echo  $row['urlinput']; ?>" alt="Favicon"> <span class="show-read-more" style="font-weight:600;" ><?php echo  $row['urlinput']; ?></span>
                                        </td>
-                                      	
-                                      	
+                                        
+                                        
                                     </tr>
                                     <tr>
                                       <th>New URL</th>
@@ -110,7 +110,7 @@ else
                                         
                                     <span id="c1">
                                         
-                                        <span id='mydiv1'><span style="color:#59c053;">https</span>://<span style="color:#2196f3;">ahrefs.tech</span></span><span id='divpath1'>/url/</span><span style="color:#282525;font-weight:900;"><?php echo $row['shorturl']; ?><span id="divExten2"></span></span>
+                                        <span id='mydiv1'><span style="color:#59c053;">https</span>://<span style="color:#2196f3;"><?php echo $_SERVER['HTTP_HOST']; ?></span></span><span id='divpath1'>/url/</span><span style="color:#282525;font-weight:900;"><?php echo $row['shorturl']; ?><span id="divExten2"></span></span>
                                         
                                          </span>
                                                 <button style="margin-left:5px;float:;" onclick="copyToClipboard('#c1')" type="button" class="btn btn-info btn-xs">Copy</button>
@@ -137,8 +137,8 @@ else
                                     </tr>
                                   <tr>
                                       <th>Tracking Code</th>
-                                      	<td  class ="text-left" style="font-weight:700;"><span  style="color:#2196f3;"><?php echo $_SESSION['TRACK_CODE'];?></span>
-                                      	&nbsp;&nbsp; (Kindly keep this code at safe Place). </td>
+                                        <td  class ="text-left" style="font-weight:700;"><span  style="color:#2196f3;"><?php echo $_SESSION['TRACK_CODE'];?></span>
+                                        &nbsp;&nbsp; (Kindly keep this code at safe Place). </td>
                                        
                                     </tr>
                                      
@@ -162,19 +162,19 @@ else
                                           <tr>
                                               
                                           <th>QR Code</th>
-                                          	<td  class ="text-left">
-                                          	    
-                                          	<?php
-                                          	      $long_url = $row['urlinput'];
-                                                	
+                                            <td  class ="text-left">
+                                                
+                                            <?php
+                                                  $long_url = $row['urlinput'];
+                                                  
                                                 echo '<div class="crop img-thumbnail img-responsive">
-                                                      	<img  class=" crop" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='.$long_url.'&choe=UTF-8" title="'.$long_url.'" />
-                                                      	</div>';
+                                                        <img  class=" crop" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='.$long_url.'&choe=UTF-8" title="'.$long_url.'" />
+                                                        </div>';
                                                      
-                                          	 ?>
-                                          	  
+                                             ?>
+                                              
                                           
-                                          	
+                                            
                                           
                                           </td>
                                             
@@ -185,21 +185,21 @@ else
                                       
                                      <tr>
                                       <th>Email Notifications</th>
-                                      	<td  class ="text-left">
-                                      	    
-                                      	    
+                                        <td  class ="text-left">
+                                            
+                                            
   
                                            
-                                      	    
-                                      	     <?php
-                                      	     
-                                      	      if(isset($_SESSION['loggedin']))
-                                      	      {
-                                      	     
-                                              	     if($row['notify'] == 0 )
-                                              	            {
-                                              	                ?>
-                                              	                
+                                            
+                                             <?php
+                                             
+                                              if(isset($_SESSION['loggedin']))
+                                              {
+                                             
+                                                     if($row['notify'] == 0 )
+                                                            {
+                                                                ?>
+                                                                
                                                          <form  action="pages/email_handler" method="POST"> 
                                                          
                                                           <input type="checkbox"  name="email_notify_on_off"  value="1" data-toggle="toggle" data-size="small" data-onstyle="success" >
@@ -207,28 +207,28 @@ else
                                                          
                                                          </form>
                                                          
-                                              	    <?php }else {?>
-                                              	    
-                                              	     <form  action="pages/email_handler" method="POST">
-                                              	         
-                                              	      <input type="checkbox" checked data-toggle="toggle"  data-size="small" data-onstyle="success" >
-                                              	      <input type="hidden" name="email_notify_on_off" value="0"  >
-                                              	      <input type="submit" style="float:right;" name="notification" value="update" class="btn btn-primary btn-xs" >
-                                              	      </form>
-                                              	      
-                                      	    <?php                }
-                                      	    }else
-                                      	    {
-                                      	        echo '
-                                      	        Please <a href="https://ahref.tech/login" style="color:#008aff;font-weight:bold;">login</a> or <a href="https://ahref.tech/register" style="color:#008aff;font-weight:bold;">register</a> to Activate Email Notification.
-                                      	        
-                                      	       ';
-                                      	    }
-                                      	    
-                                      	    
-                                      	    
-                                      	    ?>
-                                      	    
+                                                    <?php }else {?>
+                                                    
+                                                     <form  action="pages/email_handler" method="POST">
+                                                         
+                                                      <input type="checkbox" checked data-toggle="toggle"  data-size="small" data-onstyle="success" >
+                                                      <input type="hidden" name="email_notify_on_off" value="0"  >
+                                                      <input type="submit" style="float:right;" name="notification" value="update" class="btn btn-primary btn-xs" >
+                                                      </form>
+                                                      
+                                            <?php                }
+                                            }else
+                                            {
+                                                echo '
+                                                Please <a href="https://'.$_SERVER['HTTP_HOST'].'/login" style="color:#008aff;font-weight:bold;">login</a> or <a href="'.$_SERVER['HTTP_HOST'].'/register" style="color:#008aff;font-weight:bold;">register</a> to Activate Email Notification.
+                                                
+                                               ';
+                                            }
+                                            
+                                            
+                                            
+                                            ?>
+                                            
                                       </td>
                                        
                                     </tr>
@@ -256,7 +256,7 @@ else
                                                                    
                                                                                    if($update_res)
                                                                                    {
-                                                                                   	echo '  
+                                                                                    echo '  
                                                                                                         <div class="alert alert-success">  
                                                                                                             <button type="button" class="close" data-dismiss="alert">×</button>  
                                                                                                             <strong>Memo updated!</strong> You can change it Anytime.
@@ -267,8 +267,8 @@ else
                                                                                    }
                                                                                    else
                                                                                    {
-                                                                                         	echo '  
-                                                                                   	   
+                                                                                          echo '  
+                                                                                       
                                                                                                        
                                                                                                         <div class="alert alert-danger">  
                                                                                                             <button type="button" class="close" data-dismiss="alert">×</button>  
@@ -286,8 +286,8 @@ else
                                                                    }
                                                                      else
                                                                    {
-                                                                         	echo '  
-                                                                   	   
+                                                                          echo '  
+                                                                       
                                                                                        
                                                                                         <div class="alert alert-danger">  
                                                                                             <button type="button" class="close" data-dismiss="alert">×</button>  
@@ -353,7 +353,7 @@ else
                                           }
                                           else
                                           {
-                                           echo   	'<td  class ="text-left">Please <a href="https://ahref.tech/login" style="color:#008aff;font-weight:bold;">login</a> or <a href="https://ahref.tech/register" style="color:#008aff;font-weight:bold;">register</a> to create a Memo.</td>';
+                                           echo     '<td  class ="text-left">Please <a href="'.$_SERVER['HTTP_HOST'].'/login" style="color:#008aff;font-weight:bold;">login</a> or <a href="https://'.$_SERVER['HTTP_HOST'].'/register" style="color:#008aff;font-weight:bold;">register</a> to create a Memo.</td>';
                                           }
                                           
                                           ?>
@@ -369,7 +369,7 @@ else
             
             
             
-            					    <!-- other links Modal -->
+                          <!-- other links Modal -->
                                     <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                      <div class="modal-dialog" role="document">
                                       <div class="modal-content">
@@ -414,22 +414,22 @@ else
                                     </div>
                                     </div>
                                     </div>
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            					
-            				
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                    
             
        
             
@@ -451,7 +451,7 @@ else
                                                         <p><h3 >
                                                             <span id="c2">
                                                                 
-                                                                <span id='mydiv2'><span style="color:#59c053;">https</span>://<span style="color:#2196f3;">ahref.tech</span></span><span id='divpath2'>/url/</span><span style="color:#665959;"><?php echo $row['shorturl']; ?><span id="divExten1"></span> </span>
+                                                                <span id='mydiv2'><span style="color:#59c053;">https</span>://<span style="color:#2196f3;"><?php echo $_SERVER['HTTP_HOST']; ?></span></span><span id='divpath2'>/url/</span><span style="color:#665959;"><?php echo $row['shorturl']; ?><span id="divExten1"></span> </span>
                                                                 
                                                                </span>     
                                                                     
@@ -912,29 +912,29 @@ else
             </style>
             
             <div class="swipe">
-                	<div class="col-md-4">
-            								<div class="panel panel-default panel-body text-center" id="widget_social_count">
-            								    <h3>Swipe Right <i class="fas fa-hand-point-right"></i></h3><p><em></em> Start swipe Right from <strong>New URL</strong> row.</p></div>		
-            		</div>
+                  <div class="col-md-4">
+                            <div class="panel panel-default panel-body text-center" id="widget_social_count">
+                                <h3>Swipe Right <i class="fas fa-hand-point-right"></i></h3><p><em></em> Start swipe Right from <strong>New URL</strong> row.</p></div>   
+                </div>
             </div>
             
-            				</div>
-            				
-            			
-            				
-            					
-            			</div>
-            		                	<div class="col-md-4">
-            								<div class="panel panel-default panel-body" id="widget_social_count">
-            								    <h3>We are social</h3>
-            								    <p><em></em> Facebook Likes</p>
-            								    <a href='https://www.facebook.com/AhrefLogger' target='blank' class='btn-block btn btn-facebook'>Like us on Facebook</a>
-            								  	
-            								</div>
-            								
-            								
+                    </div>
+                    
+                  
+                    
+                      
+                  </div>
+                                  <div class="col-md-4">
+                            <div class="panel panel-default panel-body" id="widget_social_count">
+                                <h3>We are social</h3>
+                                <p><em></em> Facebook Likes</p>
+                                <a href='https://www.facebook.com/AhrefLogger' target='blank' class='btn-block btn btn-facebook'>Like us on Facebook</a>
+                                
+                            </div>
+                            
+                            
                                         
-            	</div>
+              </div>
             </section>    
             
          
@@ -942,25 +942,25 @@ else
             
             
            <section class="breadcrumb-section" style="margin-top:5px;">
-            	<div class="container content">
-            		<div class="row main-content">
-            			<div class="col-md-12">				
-            				<div class="panel panel-body panel-default">
-            				    
-            				 <?php
+              <div class="container content">
+                <div class="row main-content">
+                  <div class="col-md-12">       
+                    <div class="panel panel-body panel-default">
+                        
+                     <?php
                                           
                                 
-                                                                                            	    
+                                                                                                  
                                                 $fetch_record  = "SELECT * FROM tracking_data WHERE shorturl = '".$row['shorturl']."' ";
-                                                                                            	    $record = mysqli_query($con,$fetch_record);                                          	    
-                                                                                            	    $totalrow =mysqli_num_rows($record); //getting total only
-            				
-            				
-            				?>
-            				
-            				
-            				
-            			
+                                                                                                  $record = mysqli_query($con,$fetch_record);                                               
+                                                                                                  $totalrow =mysqli_num_rows($record); //getting total only
+                    
+                    
+                    ?>
+                    
+                    
+                    
+                  
                             <h2>Views: <?php echo number_format($totalrow); ?> </h2>
                             
                             
@@ -1010,13 +1010,13 @@ else
                                     </div>
             
             
-            				</div>
-            				
-            					
-            			</div>
-            		
-            		</div>		
-            	</div>
+                    </div>
+                    
+                      
+                  </div>
+                
+                </div>    
+              </div>
             </section>    
          
 
@@ -1032,28 +1032,28 @@ else
   
  
  
- 	<!-- DataTables -->
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-	<script>
-	
-	$(document).ready(function(e){
-		$('#example').dataTable({
-		    "order": [[ 0, "desc" ]],
-			"bProcessing": true,
-         	"serverSide": true,
-         	"ajax":{
-	            url :"loader/fetch",
-	            type: "POST",
-	            error: function(){
-	              $("#post_list_processing").css("display","none");
-	            }
-          	}
+  <!-- DataTables -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+  <script>
+  
+  $(document).ready(function(e){
+    $('#example').dataTable({
+        "order": [[ 0, "desc" ]],
+      "bProcessing": true,
+          "serverSide": true,
+          "ajax":{
+              url :"loader/fetch",
+              type: "POST",
+              error: function(){
+                $("#post_list_processing").css("display","none");
+              }
+            }
         });
-	});
+  });
 
 
     </script>
- 	<!-- DataTables end -->
+  <!-- DataTables end -->
  
  
  
@@ -1063,8 +1063,8 @@ else
  
  
 
-	<script src="js/custom.js"></script>
-	 
+  <script src="js/custom.js"></script>
+   
 <script>
 
     
@@ -1072,9 +1072,9 @@ else
     
      $other_shotner = mysqli_query($con,"select bitly,tiny,shortest from shotner where track_code = '".$_SESSION['TRACK_CODE']."' ");
      $base_codec = mysqli_fetch_array($other_shotner);
-                                                                         	    
+                                                                              
    ?>
-	/*other shotnen links*/	
+  /*other shotnen links*/ 
         $(document).ready(function () {
             $("#fold").click(function () {
                 $("#fold_p").fadeOut(function () {
@@ -1107,7 +1107,7 @@ else
 
 
 
-	</body>
+  </body>
 
 
 </html>
