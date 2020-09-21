@@ -60,3 +60,12 @@ specific shorten link.
  ```php
  $con = mysqli_connect("localhost","username","password","database");
  ```
+
+# Installation of new Domain || Path || Extension
+This first video guide you how to setup a free domain on AhrefLogger: [click here!](#)
+
+This Second video guide you how to install AhrefLogger source-code on your hosting : [click here!](#)
+
+# want to contact me?
+You can DM me on my instagram account: [click here!](https://www.instagram.com/code_lone/?hl=en)
+
