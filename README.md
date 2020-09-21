@@ -62,9 +62,9 @@ specific shorten link.
  ```
 
 # Installation of new Domain || Path || Extension
-This first video guide you how to setup a free domain on AhrefLogger: [click here!](#)
+This first video guide you how to setup a free redirection & domain on AhrefLogger: [click here!](https://youtu.be/3iyihNIdw5M)
 
-This Second video guide you how to install AhrefLogger source-code on your hosting : [click here!](#)
+This Second video guide you how to install AhrefLogger source-code on your hosting : [click here!](https://youtu.be/LS-JD2VaxFA)
 
 # want to contact me?
 You can DM me on my instagram account: [click here!](https://www.instagram.com/code_lone/?hl=en)
